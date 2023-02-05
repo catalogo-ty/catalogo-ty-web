@@ -5,6 +5,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { ModalEditarComponent } from './components/modal-editar/modal-editar.component';
 import { ModalEliminarComponent } from './components/modal-eliminar/modal-eliminar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +17,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MaterialModule,
+    RouterModule
+  ],
+  exports: [
+    NavbarComponent
   ]
 })
 export class SharedModule { }

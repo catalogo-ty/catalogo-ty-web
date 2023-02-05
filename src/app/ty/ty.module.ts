@@ -8,19 +8,23 @@ import { DetalleComponent } from './pages/detalle/detalle.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { MaterialModule } from '../material/material.module';
 import {MatButtonModule} from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
     AgregarComponent,
     ListarComponent,
     DetalleComponent,
-    PerfilComponent
+    PerfilComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,
     TyRoutingModule,
     MaterialModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class TyModule { }
