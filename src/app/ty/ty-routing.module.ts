@@ -13,7 +13,7 @@ const routes: Routes = [
         path: 'agregar', component: AgregarComponent
       },
       {
-        path: 'detalle', component: DetalleComponent
+        path: 'detalle/:id', component: DetalleComponent
       },
       {
         path: 'listar', component: ListarComponent

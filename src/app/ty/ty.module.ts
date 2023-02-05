@@ -6,7 +6,8 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-
+import { MaterialModule } from '../material/material.module';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
   ],
   imports: [
     CommonModule,
-    TyRoutingModule
+    TyRoutingModule,
+    MaterialModule,
+    MatButtonModule
   ]
 })
 export class TyModule { }
