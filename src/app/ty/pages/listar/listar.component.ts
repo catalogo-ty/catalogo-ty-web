@@ -1,14 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Ty } from '../../interfaces/ty';
+import { TyService } from '../../services/ty.service';
 
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.scss']
 })
-export class ListarComponent  {
+export class ListarComponent implements OnInit {
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+  listaTy: Ty[] = [];
+
+  constructor(private tyService: TyService){}
+
+  ngOnInit(): void {
+    this.tyService.getAllTy().subscribe({
+      next: (res)=>{
+        this.listaTy = res.ty;
+        
+      }
+    })
+  }
+
+
+
+
 
 }

@@ -10,6 +10,7 @@ import { MaterialModule } from '../material/material.module';
 import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './pages/main/main.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MainComponent } from './pages/main/main.component';
     TyRoutingModule,
     MaterialModule,
     MatButtonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class TyModule { }

@@ -1,1 +1,41 @@
-<h4>listado</h4>
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-6 col-md-10 col-sm-12">
+            <!-- Buscador -->
+            <form>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Buscar</mat-label>
+                    <input matInput placeholder="nombre Ty">
+                    <mat-icon matSuffix>search</mat-icon>
+                    <!--    <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-lg-3 col-md-4 col-sm-12 mb-4" *ngFor="let ty of listaTy">
+
+            <mat-card class="shadow-lg card-ty">
+                <img class="foto" mat-card-image [src]="ty.img" alt="img">
+                <mat-card-content>
+                  <p>
+                    {{ ty.name }}
+                  </p>
+                </mat-card-content>
+
+                <mat-card-actions align="end">
+                  <button [routerLink]="['/ty/detalle', ty._id]"
+                        mat-button
+                        mat-raised-button
+                        color="primary">Detalle</button>
+
+                  <button mat-button
+                        mat-raised-button
+                        color="accent" >Borrar</button>
+                </mat-card-actions>
+              </mat-card>
+              
+        </div>
+    </div>
+</div>
