@@ -5,9 +5,14 @@
 ## Dependencias
 
 * Angular Material
+* Sweet Alert
 
 ```
 npm run ng -- add @angular/material
+```
+
+```
+npm install sweetalert2
 ```
 
 ## Íconos Material Design
@@ -18,3 +23,4 @@ npm run ng -- add @angular/material
 ## Shape Divider (Background Color)
 
 * [Shape Divider](https://www.shapedivider.app/)
+

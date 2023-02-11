@@ -18,7 +18,7 @@
 
         <!-- Formulario Login -->
         <div class="col text-center">
-            <form class="padding-form">
+            <form class="padding-form" [formGroup]="formularioLogin" (ngSubmit)="login()">
                 <mat-card class="padding-form shadow card-login">
                     <mat-card-header class="align-items-center justify-content-center">
                         <mat-card-title>Iniciar sesión</mat-card-title>
@@ -27,13 +27,14 @@
                     <mat-card-content class="d-flex flex-column">
                         <mat-form-field>
                             <mat-label>Correo</mat-label>
-                            <input matInput placeholder="correo">
+                            <input formControlName="email" matInput placeholder="correo">
                             <mat-icon class="icono-login" matSuffix>mail</mat-icon>
                         </mat-form-field>
 
                         <mat-form-field>
                             <mat-label>Contraseña</mat-label>
-                            <input type="password" [type]="oculto ? 'password' : 'text'"
+                            <input formControlName="password" type="password"
+                                    [type]="oculto ? 'password' : 'text'"
                                     matInput placeholder="contraseña">
                             
                             <mat-icon id="icono-password" class="icono-login" matSuffix (click)="oculto = !oculto">
@@ -43,7 +44,7 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <button type="submit" mat-raised-button color="accent">Ingresar</button>
+                        <button type="submit" mat-raised-button color="accent" [disabled]="formularioLogin.invalid">Ingresar</button>
                     </mat-card-actions>
                 </mat-card>
             </form>
