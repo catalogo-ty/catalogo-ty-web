@@ -1,0 +1,61 @@
+/* .row {
+    min-height: 100vh;
+  }
+   */
+
+
+/* Colores del fondo abajo */
+.custom-shape-divider-bottom-1676137269 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1676137269 svg {
+    position: relative;
+    display: block;
+    width: calc(166% + 1.3px);
+    height: 390px;
+}
+
+.custom-shape-divider-bottom-1676137269 .shape-fill {
+    fill: #C119A5;
+}
+
+/* Fin de colores de fondo abajo */
+
+
+
+#logo {
+    width: 20rem;
+    height: auto;
+}
+
+/* Estilos del Formulario */
+.padding-form {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+    padding-bottom: 5% !important;
+}
+
+.card-login {
+    border: 1px solid lightgray;
+}
+
+.example-button-row button,
+.example-button-row a {
+    margin-right: 8px;
+}
+
+.icono-login {
+    color: rgb(169, 106, 201);
+}
+
+#icono-password {
+    cursor: pointer;
+}
+/* Fin de estilos al Formulario */

@@ -7,7 +7,11 @@ const routes: Routes = [
     loadChildren: ()=> import('./ty/ty.module').then(m => m.TyModule)
   },
   {
-    path: '**', redirectTo: 'ty'
+    path: 'auth',
+    loadChildren: ()=> import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: '**', redirectTo: 'auth'
   }
 ];
 
