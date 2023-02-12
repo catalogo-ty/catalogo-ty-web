@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './pages/main/main.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     MatButtonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class TyModule { }

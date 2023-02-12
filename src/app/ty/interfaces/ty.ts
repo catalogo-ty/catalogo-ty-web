@@ -3,6 +3,11 @@ export interface TyResponse {
     ty:    Ty[];
 }
 
+export interface CategoryResponse {
+    total: number;
+    categories: Category[];
+}
+
 export interface Ty {
     _id:       string;
     name:      string;
