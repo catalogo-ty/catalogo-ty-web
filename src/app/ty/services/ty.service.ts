@@ -39,10 +39,16 @@ export class TyService {
         'x-token': this.storageService.obtenerToken()!
       })
     });
-
   }
 
-
+  deleteTy(id:string){
+    const url = `${this.apiURL}/ty/${id}`;
+    return this.http.delete(url, {
+      headers: new HttpHeaders({
+        'x-token': this.storageService.obtenerToken()!
+      })
+    });
+  }
 
 
 
