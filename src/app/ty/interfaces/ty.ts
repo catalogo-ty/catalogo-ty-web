@@ -19,6 +19,12 @@ export interface Ty {
     img:       string;
 }
 
+/* export interface TyNuevo {
+    name: string;
+    color: string;
+    category: string;
+} */
+
 export interface Category {
     _id:  string;
     name: string;

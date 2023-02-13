@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Category, CategoryResponse, TyResponse } from '../interfaces/ty';
+import { Category, CategoryResponse, Ty, TyResponse } from '../interfaces/ty';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class TyService {
 
   listaCategorias: Category[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private storageService: StorageService) { }
 
   private apiURL = 'https://ty-backend2.onrender.com/api';
 
@@ -23,11 +25,26 @@ export class TyService {
     )
   }
 
-
   getAllTy():Observable<TyResponse>{
     const url = this.apiURL + '/ty';
     return this.http.get<TyResponse>(url);
   }
+
+  createTy(name:string, color:string, category:string){
+    const url = this.apiURL + '/ty';
+    const body = {name, color, category};
+
+    return this.http.post<Ty>(url, body, {
+      headers: new HttpHeaders({
+        'x-token': this.storageService.obtenerToken()!
+      })
+    });
+
+  }
+
+
+
+
 
 
 }

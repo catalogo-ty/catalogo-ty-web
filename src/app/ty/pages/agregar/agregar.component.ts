@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { TyService } from '../../services/ty.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AgregarComponent implements OnInit {
   formularioAgregar = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     color: ['', [Validators.required, Validators.minLength(3)]],
-    category: ['', []]
+    category: ['', [Validators.required]]
   })
 
   constructor(private fb: FormBuilder,
@@ -27,11 +28,29 @@ export class AgregarComponent implements OnInit {
   }
 
   agregar(){
-    console.log(this.formularioAgregar.value);
-    
+    if (this.formularioAgregar.invalid) {
+      return
+    }
+
+    const { name, color, category } = this.formularioAgregar.value;
+
+    this.tyService.createTy(name!, color!, category!).subscribe({
+      next:(res)=>{
+        this.agregarAlert(res.name);
+      },
+      error:()=>{
+        console.log('No puede haber un ty con el mismo nombre');
+      }
+    })
   }
 
-
+  agregarAlert(tyName:string) {
+    Swal.fire(
+      'Nuevo Ty agregado',
+      `El pequeño ${tyName} se agregó a la lista`,
+      'success'
+    )
+  }
 
 
 
