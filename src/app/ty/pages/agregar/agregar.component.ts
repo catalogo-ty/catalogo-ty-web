@@ -38,8 +38,14 @@ export class AgregarComponent implements OnInit {
       next:(res)=>{
         this.agregarAlert(res.name);
       },
-      error:()=>{
-        console.log('No puede haber un ty con el mismo nombre');
+      error:(error)=>{
+        console.log(error.error.msg);
+        
+        Swal.fire(
+          'Alerta',
+          error.error.msg,
+          'info'
+        )
       }
     })
   }

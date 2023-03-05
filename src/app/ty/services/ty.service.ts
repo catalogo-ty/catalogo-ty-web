@@ -30,6 +30,11 @@ export class TyService {
     return this.http.get<TyResponse>(url);
   }
 
+  getOneTy(id:string):Observable<Ty>{
+    const url = `${this.apiURL}/ty/${id}`;
+    return this.http.get<Ty>(url)
+  }
+
   createTy(name:string, color:string, category:string){
     const url = this.apiURL + '/ty';
     const body = {name, color, category};

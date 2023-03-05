@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs';
+import { Ty } from '../../interfaces/ty';
+import { TyService } from '../../services/ty.service';
 
 @Component({
   selector: 'app-detalle',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleComponent implements OnInit {
 
-  constructor() { }
+  ty!: Ty;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private tyService: TyService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.pipe(
+      switchMap( ({id})=> this.tyService.getOneTy(id) )
+    ).subscribe({
+      next:(res)=>{
+        this.ty = res;
+      }
+    })
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
